@@ -1,0 +1,8 @@
+# base requirements
+django==3.2
+gunicorn==20.0.4
+djangorestframework==3.12.4
+# test
+flake8>=3.6.0,<3.7.0
+# Environment
+django-environ==0.4.5

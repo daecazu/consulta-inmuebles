@@ -15,5 +15,6 @@ esta es una lista de las tecnologias utilizadas y estaran listadas en un archivo
 - django 3.2
 - django rest framework DRF 3.12.4
 - mysql 
-- flake8 
+- flake8
 - django-environ 0.4.5
+- gunircorn
