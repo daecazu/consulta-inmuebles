@@ -1,5 +1,5 @@
 
-FROM python:3.9-alpine3.13
+FROM python:3.7-alpine
 
 EXPOSE 8000
 
@@ -8,6 +8,11 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
+
+# mysql requirements
+RUN apk update \
+    && apk add --virtual build-deps gcc python3-dev musl-dev \
+    && apk add --no-cache mariadb-dev
 
 # Install pip requirements
 COPY requirements.txt .

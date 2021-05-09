@@ -6,3 +6,5 @@ djangorestframework==3.12.4
 flake8>=3.6.0,<3.7.0
 # Environment
 django-environ==0.4.5
+#mysql
+mysqlclient
