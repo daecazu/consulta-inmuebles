@@ -22,9 +22,9 @@ COPY ./app /app
 WORKDIR /app
 
 # Creates a non-root user and adds permission to access the /app folder
-RUN addgroup -S django \
-    && adduser -S -G django django
-RUN chown -R django /app
-USER django
+# RUN addgroup -S django \
+#    && adduser -S -G django django
+# RUN chown -R django /app
+# USER django
 
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "inmuebles.wsgi"]
