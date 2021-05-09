@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'inmuebles'
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,9 @@ DATABASES = {
         'PASSWORD': env('MYSQL_PASSWORD'),
         'HOST': env('MYSQL_HOST'),  
         'PORT': env('MYSQL_PORT'),
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
     }
 }
 
