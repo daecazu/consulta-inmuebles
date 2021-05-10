@@ -37,3 +37,9 @@ esta es una lista de las tecnologias utilizadas y estaran listadas en un archivo
 - tuve un problema con la imagen python 3.9 alpine la cual no era compatible directamente con mysql e inverti mucho tiempo en la instalación de las librerias necesarias, por lo cual decidi usar la imagen de python 3.7 alpine que no presentaba este problema
 - no pude filtrar solamente el estado más reciente de los inmuebles y lamentablemente aparecen varios estados de los inmuebles con estados permitidos, por lo cual no pasan las pruebas unitarias definidas
 
+### Diagrama entidad relación servicio 2
+![](images/diagrama.png)
+
+- El diagrama de entidad relación contiene 3 modelos, el modelo ya existente property, un modelo muy simplificado de usuario y el historico de likes
+que simplemente esta relacionado por medio de las 2 llaves primarias de las tablas ya mencionadas. la llave primaria de la base de datos 'likes_history' está compuesta por la combinación primarias de las tablas (users y property) para asegurar que solo haya un registro de like por usuario para cada propiedad.
+
