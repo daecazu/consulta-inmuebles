@@ -7,16 +7,15 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 # models imports
-from inmuebles.models import Property
-from inmuebles.models import Status
 from inmuebles.models import StatusHistory
 
 # test samples
-from .test_models import sample_property 
+from .test_models import sample_property
 from .test_models import sample_status
 
 
-INMUEBLES_URL = reverse('inmueble:inmueble-list')
+INMUEBLES_URL = reverse('inmuebles:inmuebles-list')
+
 
 class InmueblesApiTest(TestCase):
 
@@ -79,30 +78,40 @@ class InmueblesApiTest(TestCase):
             status=self.status_3,
             update_date='2021-05-09 22:23:56'
         )
+
     def test_get_inmuebles(self):
         """
         test (get) endpoint results
         """
         expected_json = [
             {
-                'address':'carrera 100 #15-90',
-                'city':'medellin',
-                'price':325000000,
-                'description':
-                'Amplio apartamento en conjunto cerrado',
-                'year':2011,
-                'status': 'pre_venta'
+                "property": {
+                    'address': 'carrera 100 #15-90',
+                    'city': 'medellin',
+                    'price': 325000000,
+                    'description':
+                    'Amplio apartamento en conjunto cerrado',
+                    'year': 2011
+                },
+
+                'status': {
+                    'name': 'pre_venta'
+                }
             },
             {
-                'address':'calle 23 #45-67',
-                'city':'medellin',
-                'price':210000000,
-                'description':'',
-                'year':2002,
-                'status': 'en_venta'
+                "property": {
+                    'address': 'calle 23 #45-67',
+                    'city': 'medellin',
+                    'price': 210000000,
+                    'description': '',
+                    'year': 2002
+                },
+                'status':  {
+                    'name':  'en_venta'
+                }
             }
         ]
-            
+
         response = self.client.get(INMUEBLES_URL, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, expected_json)
@@ -120,11 +129,3 @@ class InmueblesApiTest(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
-
-
-
-
-
-
-
-
